@@ -19,7 +19,7 @@ router.get('/register', function(req, res, next) {
 
 router.get('/profile', isLoggedIn,async function(req, res, next) {
   const user = await userModel
-    .findOne({username: req.session.passport.user})
+    .findOne({username: req.session.passport.user}) 
     .populate("posts");
   res.render('profile', {user, nav:true});
 });
@@ -43,6 +43,34 @@ router.post('/createpost', isLoggedIn, upload.single("postimage") ,async functio
   await user.save();
   res.redirect("/profile");
 });
+
+
+// show user all post 
+router.get('/show/posts', isLoggedIn, async function(req, res, next){
+  const user = await userModel
+          .findOne({username: req.session.passport.user})
+          .populate("posts");
+  res.render('show', {user, nav: true})
+});
+
+// Show All user All Post On feed
+router.get("/feed", isLoggedIn, async function(req, res, next){
+  const user = await userModel.findOne({username: req.session.passport.user})
+  const posts = await postModel.find()
+  .populate("user")
+
+  res.render("feed", {user, posts, nav: true});
+})
+
+
+//show single post with ID
+router.get("/feed/:id", isLoggedIn, async function(req, res, next){
+  const user = await userModel.findOne({username: req.session.passport.user})
+  const posts = await postModel.findOne({_id: req.params.id})
+  // .populate("posts")
+  console.log(posts)
+  res.render("singlepost",{user, posts, nav: true});
+})
 
 // File Upload Route 
 router.post('/fileupload', isLoggedIn, upload.single("image"),async function(req, res, next){

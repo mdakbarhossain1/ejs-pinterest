@@ -14,8 +14,8 @@
                         class="w-full h-full object-cover">
                 </div>
             </div>
-            <h1 class="text-3xl font-semibold text-white mt-5">Shuvo Shikh</h1>
-            <h3 class="text-md">@Username</h3>
+            <h1 class="text-3xl font-semibold text-white mt-5"><%= user.username %></h1>
+            <h3 class="text-md">@<%= user.username %></h3>
             <a href="/edit" class="mt-5 px-10 py-2 bg-zinc-700 rounded-full text-xs">Edit</a>
             <a href="/add" class="px-10 py-2 rounded-lg bg-red-700 text-xs font-semibold mt-10">Add New post</a>
         </div>
@@ -26,7 +26,7 @@
                         <img src="/images/uploads/<%=user?.posts[0].image%>" alt="comic"
                             class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-xl font-semibold mt-4">Your Uploaded Pins</h3>
+                    <a href="/show/posts" class="inline-block text-xl font-semibold mt-4">Your Uploaded Pins</a>
                     <h5 class="text-sm font-medium opacity-60"><%= user?.posts.length %> Pins</h5>
                 </div>
             </div>
