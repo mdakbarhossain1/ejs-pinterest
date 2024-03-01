@@ -26,15 +26,15 @@
 - Run the Application: After completing the configuration, run npm start to start the server.
 
 # API Endpoints
--/register: User registration endpoint.
--/login: User login endpoint.
--/logout: Endpoint to log out the user.
--/profile: Endpoint to view and update user profile.
--/feed: Endpoint to view posts from other users.
--/save/:pinId: Endpoint to save a post to a board.
--/delete/:pinId: Endpoint to delete a post from a board.
--/edit: Endpoint to edit a post.
--/upload: Endpoint for uploading images or files.
+- /register: User registration endpoint.
+- /login: User login endpoint.
+- /logout: Endpoint to log out the user.
+- /profile: Endpoint to view and update user profile.
+- /feed: Endpoint to view posts from other users.
+- /save/:pinId: Endpoint to save a post to a board.
+- /delete/:pinId: Endpoint to delete a post from a board.
+- /edit: Endpoint to edit a post.
+- /upload: Endpoint for uploading images or files.
 
 # Technologies Used
 - Node.js: Runtime environment for the server.
